@@ -36,28 +36,28 @@ func main() {
 		fmt.Println(record.Name)
 	}
 
-	//pod := &corev1.Pod{
-	//	ObjectMeta: metav1.ObjectMeta{
-	//		Name: "demo-pod",
-	//	},
-	//	Spec: corev1.PodSpec{
-	//		Containers: []corev1.Container{
-	//			{
-	//				Name:  "nginx-container",
-	//				Image: "nginx",
-	//			},
-	//		},
-	//	},
-	//}
-	//
-	////create pod client
-	//podClient := clientSet.CoreV1().Pods("default")
-	//result, err := podClient.Create(context.Background(), pod, metav1.CreateOptions{})
-	//if err != nil {
-	//	panic(err)
-	//}
-	//
-	//fmt.Println(result.Name)
+	pod := &corev1.Pod{
+		ObjectMeta: metav1.ObjectMeta{
+			Name: "demo-pod",
+		},
+		Spec: corev1.PodSpec{
+			Containers: []corev1.Container{
+				{
+					Name:  "nginx-container",
+					Image: "nginx",
+				},
+			},
+		},
+	}
+
+	//create pod client
+	podClient := clientSet.CoreV1().Pods("default")
+	result, err := podClient.Create(context.Background(), pod, metav1.CreateOptions{})
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(result.Name)
 
 	//create deployment
 	replicas := int32(2)
