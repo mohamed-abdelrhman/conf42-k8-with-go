@@ -1,0 +1,8 @@
+apiVersion: restaurant.example.com/v1
+kind: BurgerStand
+metadata:
+  name: bigbun
+spec:
+  location: "123 Main St, City, Country"
+  capacity: 50
+  isOpen: true
